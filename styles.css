@@ -1,56 +1,74 @@
 :root{
-  /* Core palette */
-  --bg: #f8fafc;            /* very light blue-grey */
-  --surface: #ffffff;
-  --text: #0f172a;          /* slate-900 */
-  --muted: #475569;         /* slate-600 */
-  --border: #e2e8f0;        /* slate-200 */
+  --bg:#ffffff;
+  --text:#111111;
+  --muted:#4b5563;
+  --border:#e5e7eb;
+  --card:#fafafa;
+  --link:#111111;
 
-  /* Accent */
-  --accent: #2563eb;        /* blue-600 */
-  --accent-soft: #eff6ff;   /* blue-50 */
-
-  /* UI */
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
-  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
-  --radius-sm: 10px;
-  --radius-md: 16px;
-
+  --shadow: 0 1px 2px rgba(0,0,0,.04);
+  --radius: 16px;
   --max: 980px;
 }
+
+/* -------------------------
+   Subtle blue wavy background
+   ------------------------- */
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(59,130,246,0.08), transparent 60%),
+    radial-gradient(1000px 600px at 90% 10%, rgba(37,99,235,0.06), transparent 60%),
+    radial-gradient(900px 400px at 50% 80%, rgba(99,102,241,0.05), transparent 65%);
+}
+
+/* -------------------------
+   Base styles
+   ------------------------- */
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 
 body{
   margin:0;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 60%);
+  background: var(--bg);
   color:var(--text);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   line-height:1.55;
 }
 
-/* Links */
 a{
-  color: var(--accent);
+  color: var(--link);
   text-decoration: none;
 }
-a:hover{ text-decoration: underline; }
+a:hover{
+  text-decoration: underline;
+}
 
-/* Layout */
+/* -------------------------
+   Layout
+   ------------------------- */
+
 .container{
   max-width: var(--max);
   margin: 0 auto;
   padding: 28px 20px 72px;
 }
 
-/* Navigation */
+/* -------------------------
+   Navigation
+   ------------------------- */
+
 .nav{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:16px;
-  padding: 12px 0 28px;
+  padding: 10px 0 24px;
 }
 
 .brand{
@@ -59,96 +77,100 @@ a:hover{ text-decoration: underline; }
   gap:2px;
 }
 .brand strong{
-  font-weight:700;
-  letter-spacing:-0.02em;
+  font-weight:650;
+  letter-spacing:-0.01em;
 }
 .brand span{
   color:var(--muted);
-  font-size:13px;
+  font-size:14px;
 }
 
 .navlinks{
   display:flex;
-  gap:12px;
+  gap:14px;
   align-items:center;
   font-size:14px;
 }
 
-/* Pills */
 .pill{
   display:inline-flex;
   align-items:center;
-  padding:8px 12px;
-  border-radius:999px;
-  background: var(--surface);
+  gap:10px;
+  padding:10px 12px;
   border:1px solid var(--border);
-  color: var(--text);
-  box-shadow: var(--shadow-sm);
+  border-radius: 999px;
+  background:#fff;
+  box-shadow: var(--shadow);
 }
 .pill:hover{
   text-decoration:none;
-  background: var(--accent-soft);
-  border-color: #c7d2fe;
 }
 
-/* Hero */
+/* -------------------------
+   Hero
+   ------------------------- */
+
 .hero{
-  padding: 40px 0 22px;
+  padding: 34px 0 18px;
 }
 
 h1{
-  font-size: clamp(36px, 4.2vw, 54px);
+  font-size: clamp(34px, 4vw, 52px);
   line-height:1.05;
-  letter-spacing:-0.035em;
-  margin: 0 0 14px;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
 }
 
 .lede{
   font-size: 18px;
   color: var(--muted);
-  max-width: 72ch;
-  margin: 0 0 20px;
+  max-width: 70ch;
+  margin: 0 0 18px;
 }
 
-/* CTAs */
+/* -------------------------
+   CTAs
+   ------------------------- */
+
 .ctaRow{
   display:flex;
   flex-wrap:wrap;
-  gap:12px;
+  gap:10px;
   align-items:center;
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .button{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding: 11px 16px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--accent);
-  background: linear-gradient(180deg, #3b82f6, #2563eb);
-  color: #ffffff;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--text);
+  background: var(--text);
+  color: #fff;
   font-weight:600;
-  box-shadow: var(--shadow-md);
 }
 .button:hover{
   text-decoration:none;
-  filter: brightness(1.05);
+  opacity:.92;
 }
 
 .button.secondary{
-  background: var(--surface);
-  color: var(--accent);
-  border:1px solid #c7d2fe;
-  box-shadow: var(--shadow-sm);
+  background:#fff;
+  color:var(--text);
+  border:1px solid var(--border);
 }
 
-/* Cards & grids */
+/* -------------------------
+   Cards & grids
+   ------------------------- */
+
 .grid{
   display:grid;
   grid-template-columns: 1fr;
-  gap: 16px;
-  margin-top: 24px;
+  gap: 14px;
+  margin-top: 18px;
 }
 
 @media (min-width: 820px){
@@ -157,16 +179,16 @@ h1{
 
 .card{
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  padding: 18px 18px;
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 16px 16px;
+  box-shadow: var(--shadow);
 }
 
 .card h2{
   font-size: 16px;
   margin: 0 0 8px;
-  letter-spacing:-0.01em;
+  letter-spacing: -0.01em;
 }
 
 .card p{
@@ -179,16 +201,19 @@ ul{
   color: var(--muted);
 }
 
-/* Sections */
+/* -------------------------
+   Sections
+   ------------------------- */
+
 .section{
-  margin-top: 36px;
-  padding-top: 8px;
+  margin-top: 28px;
+  padding-top: 10px;
 }
 
 .section h2{
-  font-size: 19px;
+  font-size: 18px;
   margin: 0 0 10px;
-  letter-spacing:-0.01em;
+  letter-spacing: -0.01em;
 }
 
 .kicker{
@@ -197,12 +222,15 @@ ul{
   margin: 0;
 }
 
-/* Forms */
+/* -------------------------
+   Forms
+   ------------------------- */
+
 .form{
   display:grid;
   grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 14px;
+  gap: 10px;
+  margin-top: 12px;
 }
 
 @media (min-width: 820px){
@@ -223,12 +251,13 @@ input, textarea{
   width: 100%;
   padding: 11px 12px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
+  border-radius: 12px;
+  background: #fff;
   font: inherit;
 }
 
-input:focus, textarea:focus{
+input:focus,
+textarea:focus{
   outline:none;
   border-color:#93c5fd;
   box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
@@ -246,10 +275,13 @@ small.helper{
   font-size: 13px;
 }
 
-/* Footer */
+/* -------------------------
+   Footer
+   ------------------------- */
+
 .footer{
-  margin-top: 56px;
-  padding-top: 20px;
+  margin-top: 52px;
+  padding-top: 18px;
   border-top: 1px solid var(--border);
   color: var(--muted);
   font-size: 13px;
