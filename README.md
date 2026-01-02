@@ -1,19 +1,24 @@
 # Clearform
 
-This repository hosts the Clearform landing page, deployed via **GitHub Pages** as a project site under:
+This repository hosts the Clearform landing page, deployed via GitHub Pages at:
 
 https://nicholasvest.com/clearform/
 
-## What is Clearform?
+## Overview
 
-Clearform is a small consulting practice focused on redesigning and automating everyday workflows for service-based organizations.
+Clearform is a small consulting practice focused on improving how work moves through service-based organizations.
 
-The emphasis is not one-size-fits-all automation, but **system design**: clarifying how work moves through an organization (intake, handoffs, coordination, follow-through) and then automating the right parts using modern tools.
-
-The goal is to reduce busywork while keeping workflows understandable, reliable, and human-owned.
+The work centers on clarifying workflows (intake, coordination, handoffs, follow-through) and selectively automating parts of those systems to reduce manual overhead while preserving reliability and human understanding.
 
 ## About this site
 
-- **Static HTML** (no framework, no build step)
-- Deployed directly from the `main` branch using **GitHub Pages**
-- Intended as a lightweight, low-friction signal page rather than a full product site
+- Static HTML (no framework, no build step)
+- Deployed directly from the `main` branch using GitHub Pages
+- Intended as a lightweight informational page, not a full product site
+
+## Structure
+
+```text
+.
+├── index.html
+└── README.md
