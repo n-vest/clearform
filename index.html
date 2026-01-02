@@ -4,45 +4,121 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Clearform</title>
-  <meta name="description" content="Clearform helps teams redesign and automate workflows so they can scale without adding headcount." />
-  <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; line-height: 1.5; }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 72px 24px; }
-    h1 { font-size: 44px; margin: 0 0 12px; letter-spacing: -0.02em; }
-    p { font-size: 18px; margin: 0 0 16px; color: #222; }
-    .muted { color: #555; }
-    .card { border: 1px solid #e6e6e6; border-radius: 14px; padding: 18px 18px; margin-top: 18px; }
-    ul { margin: 10px 0 0 18px; }
-    a.button { display: inline-block; margin-top: 14px; padding: 10px 14px; border-radius: 10px; border: 1px solid #111; text-decoration: none; color: #111; }
-    a.button:hover { opacity: 0.85; }
-    footer { margin-top: 60px; font-size: 14px; color: #666; }
-  </style>
+  <meta name="description" content="Clearform helps small and medium-sized businesses redesign and automate everyday workflows so teams can scale without adding headcount." />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href="data:," />
 </head>
 <body>
-  <div class="wrap">
-    <h1>Clearer workflows. Less busywork.</h1>
-    <p class="muted">Clearform helps small and medium-sized businesses redesign and automate everyday workflows so teams can scale without adding headcount.</p>
+  <div class="container">
+    <header class="nav">
+      <div class="brand">
+        <strong>Clearform</strong>
+        <span>Workflow + automation consulting</span>
+      </div>
+      <nav class="navlinks">
+        <a class="pill" href="./about/">About</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+    </header>
 
-    <div class="card">
-      <p><strong>What I do</strong></p>
-      <p>I redesign how work moves through your business—intake, handoffs, coordination, follow-through—then automate the right parts with modern AI and integration tools.</p>
-    </div>
+    <main>
+      <section class="hero">
+        <h1>Clearer workflows. Less busywork.</h1>
+        <p class="lede">
+          Clearform helps small and medium-sized businesses redesign and automate everyday workflows so teams can scale without adding headcount.
+        </p>
 
-    <div class="card">
-      <p><strong>Example workflows</strong></p>
-      <ul>
-        <li>Client or candidate intake and triage</li>
-        <li>Internal coordination and handoffs</li>
-        <li>Purchasing and approvals</li>
-        <li>Content creation and reuse</li>
-        <li>Reporting, summaries, and follow-ups</li>
-      </ul>
-    </div>
+        <div class="ctaRow">
+          <a class="button" href="#contact">Talk with me</a>
+          <a class="button secondary" href="./about/">What I mean by “workflow”</a>
+        </div>
 
-    <a class="button" href="mailto:YOUR_EMAIL_HERE?subject=Clearform%20inquiry">Talk with me</a>
+        <div class="grid">
+          <div class="card">
+            <h2>What I do</h2>
+            <p>
+              I clarify how work moves through your organization (intake, handoffs, coordination, follow-through),
+              then automate the right parts using modern AI and integration tools.
+            </p>
+            <p class="kicker">The goal is reliability and understanding, not hacks.</p>
+          </div>
 
-    <footer>© <span id="y"></span> Clearform</footer>
+          <div class="card">
+            <h2>Example workflows</h2>
+            <ul>
+              <li>Client or candidate intake and triage</li>
+              <li>Internal coordination and handoffs</li>
+              <li>Purchasing and approvals</li>
+              <li>Content creation and reuse</li>
+              <li>Reporting, summaries, and follow-ups</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>A different approach to automation</h2>
+        <p class="lede">
+          Automation projects often fail when tools are added before workflows are clear.
+          Clearform starts with system design so AI supports people instead of creating fragility.
+        </p>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Interested?</h2>
+        <p class="lede">Leave a note and I’ll follow up.</p>
+
+        <!--
+          Formspree setup:
+          1) Create a free Formspree form (formspr.ee)
+          2) Replace ACTION_URL below with your form endpoint (looks like: https://formspree.io/f/xxxxxx)
+        -->
+        <form class="form two" method="POST" action="ACTION_URL">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" required />
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="span2">
+            <label for="org">Organization (optional)</label>
+            <input id="org" name="organization" autocomplete="organization" />
+          </div>
+
+          <div class="span2">
+            <label for="message">What workflow are you thinking about?</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <!-- Honeypot (spam trap): should stay hidden -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="span2">
+            <button class="button" type="submit">Get in touch</button>
+            <small class="helper">
+              Prefer email? <a href="mailto:YOUR_EMAIL_HERE?subject=Clearform%20inquiry">Send a note</a>.
+            </small>
+          </div>
+        </form>
+
+        <small class="helper">
+          Note: This form is static-site friendly. No tracking, no CRM by default.
+        </small>
+      </section>
+
+      <footer class="footer">
+        <div>© <span id="y"></span> Clearform</div>
+        <div><a href="./about/">About</a> · <a href="#contact">Contact</a></div>
+      </footer>
+    </main>
   </div>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
